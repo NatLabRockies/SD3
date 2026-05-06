@@ -43,7 +43,7 @@ sd3-tools/
 
 The `phenix-experiments/baseline/` directory contains detailed documentation for the co-simulation experiment:
 
-### 📋 [co_simulation_overview.md](phenix-experiments/co_simulation_overview.md)
+### 📋 [co_simulation_overview.md](docs/co_simulation_overview.md)
 **Start here** for a high-level understanding of the system.
 - Executive summary of the co-simulation architecture
 - System data flow diagrams
@@ -51,7 +51,7 @@ The `phenix-experiments/baseline/` directory contains detailed documentation for
 - Experiment execution phases
 - HELICS synchronization overview
 
-### 🏗️ [architecture.md](phenix-experiments/architecture.md)
+### 🏗️ [architecture.md](docs/architecture.md)
 In-depth technical architecture and component design.
 - **OpenDSS Power Simulator** - Power flow calculations, model structure, HELICS interface
 - **Alfalfa Building Service** - EnergyPlus models, building controls, API endpoints
@@ -61,7 +61,7 @@ In-depth technical architecture and component design.
 - **Data Collection System** - Kafka streaming, post-processing, analysis tools
 - Communication protocols and performance metrics
 
-### 🚀 [setup_and_running.md](phenix-experiments/setup_and_running.md)
+### 🚀 [setup_and_running.md](docs/setup_and_running.md)
 Complete deployment and operational guide.
 - Prerequisites and pre-deployment checklist
 - Step-by-step experiment deployment via Phenix
@@ -71,7 +71,7 @@ Complete deployment and operational guide.
 - Configuration reference for all YAML files
 - Advanced options and debug modes
 
-### 🔧 [components.md](phenix-experiments/components.md)
+### 🔧 [components.md](docs/components.md)
 Detailed technical specifications for each subsystem.
 - **OpenDSS** - Installation, circuit models, load injection configuration
 - **Alfalfa** - Building thermal properties, HVAC systems, control strategies
@@ -82,18 +82,18 @@ Detailed technical specifications for each subsystem.
 ## Quick Start
 
 ### For New Users
-1. Start with [co_simulation_overview.md](phenix-experiments/co_simulation_overview.md) to understand the system
-2. Read [architecture.md](phenix-experiments/architecture.md) for technical depth
-3. Use [setup_and_running.md](phenix-experiments/setup_and_running.md) to deploy your first experiment
+1. Start with [co_simulation_overview.md](docs/co_simulation_overview.md) to understand the system
+2. Read [architecture.md](docs/architecture.md) for technical depth
+3. Use [setup_and_running.md](docs/setup_and_running.md) to deploy your first experiment
 
 ### For Deployment
-1. Follow the deployment checklist in [setup_and_running.md](phenix-experiments/setup_and_running.md)
+1. Follow the deployment checklist in [setup_and_running.md](docs/setup_and_running.md)
 2. Create a feature branch and push to trigger CI/CD
 3. Monitor the experiment via Phenix GUI
 4. Download and analyze results
 
 ### For Troubleshooting
-Refer to the troubleshooting sections in [setup_and_running.md](phenix-experiments/setup_and_running.md) or dive into [components.md](phenix-experiments/baseline/components.md) for specific subsystem details.
+Refer to the troubleshooting sections in [setup_and_running.md](docs/setup_and_running.md) or dive into [components.md](docs/components.md) for specific subsystem details.
 
 ## Key Technologies
 
