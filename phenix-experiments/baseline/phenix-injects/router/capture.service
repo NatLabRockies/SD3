@@ -1,0 +1,11 @@
+[Unit]
+Description=Packet capture on mirror0
+After=mirror.service network-online.target
+Requires=mirror.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/tcpdump -i mirror0 -s 0 -U -w /mirrordata.pcap
+
+[Install]
+WantedBy=multi-user.target

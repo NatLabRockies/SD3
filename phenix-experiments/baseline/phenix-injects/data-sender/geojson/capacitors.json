@@ -1,0 +1,65 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    222254.95,
+                    289966.386
+                ]
+            },
+            "properties": {
+                "name": "cap_227_452728_3",
+                "connecting_element": "195_275915",
+                "nominal_voltage": 12470.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    222517.496,
+                    288419.858
+                ]
+            },
+            "properties": {
+                "name": "cap_227_623391_6",
+                "connecting_element": "941_308415",
+                "nominal_voltage": 12470.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    216495.832,
+                    294603.464
+                ]
+            },
+            "properties": {
+                "name": "cap_227_623375_1",
+                "connecting_element": "941_279397",
+                "nominal_voltage": 12470.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    212788.33,
+                    296394.642
+                ]
+            },
+            "properties": {
+                "name": "cap_227_452638_2",
+                "connecting_element": "195_275990",
+                "nominal_voltage": 12470.0
+            }
+        }
+    ]
+}

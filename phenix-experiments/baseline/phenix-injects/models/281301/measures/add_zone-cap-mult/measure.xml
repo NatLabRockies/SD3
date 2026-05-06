@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<measure>
+  <schema_version>3.1</schema_version>
+  <name>add_zone_cap_mult</name>
+  <uid>0053d7ba-bc39-497f-8ca6-2a01738cad99</uid>
+  <version_id>9b5ab0f9-5c91-4408-8bf8-fc1b4ad8fd6f</version_id>
+  <version_modified>2024-08-06T16:26:18Z</version_modified>
+  <xml_checksum>3B4EF12F</xml_checksum>
+  <class_name>AddZoneCapMult</class_name>
+  <display_name>Add Zone Cap Mult</display_name>
+  <description>Add zone capacitance multiplier</description>
+  <modeler_description>Add ZoneCapacitanceMultiplier:ResearchSpecial to each zone</modeler_description>
+  <arguments>
+    <argument>
+      <name>zn_cap_mult</name>
+      <display_name>Zone Cap Mult</display_name>
+      <description>Zone Capacitance Multiplier</description>
+      <type>Double</type>
+      <units>-</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>7</default_value>
+    </argument>
+  </arguments>
+  <outputs />
+  <provenances />
+  <tags>
+    <tag>None</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>EnergyPlusMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.3.0</identifier>
+        <min_compatible>2.3.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>98CE348E</checksum>
+    </file>
+  </files>
+</measure>

@@ -1,0 +1,29 @@
+version: "3.4"
+services:
+  aggregator:
+    container_name: aggregator
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8080:80"
+    environment:
+      MONGO_USERNAME: "root"
+      MONGO_PASSWORD: "example"
+      MONGO_DATABASE: "aggregator"
+      MONGO_HOSTNAME: "mongo" 
+      MONGO_PORT: 27017
+  mongo:
+    container_name: aggregator_mongo
+    image: mongo:latest
+    command: ["--bind_ip_all"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-aggregator:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "example"
+      MONGO_INITDB_DATABASE: "aggregator"
+volumes:
+  mongodb-aggregator: 

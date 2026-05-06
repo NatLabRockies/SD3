@@ -1,0 +1,10 @@
+apiVersion: phenix.sandia.gov/v0
+kind: Workflow
+metadata: {}
+spec:
+  auto:
+    create: ${BRANCH_NAME}
+    update: true
+    restart: true
+  topology: ${BRANCH_NAME}
+  scenario: ${BRANCH_NAME}

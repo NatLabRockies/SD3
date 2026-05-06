@@ -1,0 +1,712 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: ${BRANCH_NAME}_scorch
+  annotations:
+    topology: ${BRANCH_NAME}
+spec: 
+  apps: 
+  - name: scorch
+    metadata:
+      filebeat:
+        enabled: false
+      components:
+        - name: kafka-csvs
+          type: cc
+          metadata:
+            vms:
+              - hostname: data-sender
+                configure:
+                  - type: background
+                    args: /usr/bin/chmod +x /data-sender/kafka-to-csv; /data-sender/kafka-to-csv -e ${BRANCH_NAME} -s baseline -b ${HOST}
+                    wait: false
+        - name: postprocess-alfalfa-output
+          type: cc
+          metadata:
+            vms: 
+              - hostname: data-sender
+                cleanup:
+                - type: exec
+                  args: /bin/bash /data-sender/process-alfalfa-results.sh
+                  wait: true
+                  validator: /usr/bin/stat /alfalfa/building_battery_results.tgz
+        - name: receive-alfalfa-results
+          type: cc
+          metadata: 
+            vms:
+              - hostname: data-sender
+                cleanup: 
+                - type: recv
+                  args: /alfalfa/building_battery_results.tgz
+        - name: postprocess-power-data
+          type: cc
+          metadata:
+            vms: 
+              - hostname: data-sender
+                cleanup:
+                - type: exec
+                  args: /bin/bash /data-sender/process-power-data.sh true
+                  wait: true
+                  validator: /usr/bin/stat /grid/grid_results.tgz
+        - name: receive-grid-results
+          type: cc
+          metadata: 
+            vms:
+              - hostname: data-sender
+                cleanup: 
+                - type: recv
+                  args: /grid/grid_results.tgz
+        - name: receive-aggregator-schedule
+          type: cc
+          metadata: 
+            vms:
+              - hostname: aggregator
+                cleanup: 
+                - type: recv
+                  args: /usr/src/app/service_area_schedule.csv
+        - name: receive-aggregator-logs
+          type: cc
+          metadata: 
+            vms:
+              - hostname: aggregator
+                cleanup: 
+                - type: recv
+                  args: /var/log/aggregator.log
+        - name: receive-aggregator-service-logs
+          type: cc
+          metadata: 
+            vms:
+              - hostname: aggregator
+                cleanup: 
+                - type: recv
+                  args: /var/log/service_area_schedule.log
+        - name: check-exp-stopped
+          type: cc
+          metadata:
+            vms:
+              - hostname: soco 
+                cleanup:
+                  - type: exec
+                    wait: true
+                    args: |
+                      while [ -n "$(pgrep -f 'python3 agent.py')" ]; do
+                        sleep 15 
+                        echo "waiting for agent.py to end"
+                        if grep -q "Freeing" /var/log/power.log; then
+                          break
+                        fi
+                      done
+                      echo "agent.py stopped"
+
+        - name: clear_alfalfa
+          type: cc
+          metadata:
+            vms: 
+              - hostname: data-sender
+                cleanup:
+                - type: exec
+                  args: /bin/bash /data-sender/clear_alfalfa.sh true
+                  wait: false
+
+        - name: clear_kafka_topics
+          type: cc
+          metadata:
+            vms: 
+              - hostname: data-sender
+                cleanup:
+                - type: exec
+                  args: /usr/bin/python3 /data-sender/clear_topics.py --b ${HOST}:9092 --e ${BRANCH_NAME}
+                  wait: false
+        
+        - name: attack_dns
+          type: cc
+          metadata:
+            vms: 
+              - hostname: aol
+                cleanup:
+                - type: exec
+                  args: /usr/bin/nohup /usr/bin/bash -c '/usr/bin/sleep 300; exec /dnsswitch.sh' </dev/null >>/var/log/dnsswitch.log 2>&1 &
+                  wait: false
+       
+        - name: attack_api
+          type: cc
+          metadata:
+            vms: 
+              - hostname: bookworm
+                cleanup:
+                - type: exec
+                  args: /usr/bin/nohup /usr/bin/bash -c '/usr/bin/sleep 4200; exec /apidirectfuzz.sh' </dev/null >>/var/log/apidirectfuzz.log 2>&1 &
+                  wait: false
+
+        - name: export-federate-logs
+          type: cc
+          metadata:
+            vms:
+            - hostname: alfalfa-464636_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-464636_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-464636_1.tgz
+            - hostname: alfalfa-357101_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-357101_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-357101_1.tgz
+            - hostname: alfalfa-420644_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-420644_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-420644_1.tgz
+            - hostname: alfalfa-129064_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-129064_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-129064_1.tgz
+            - hostname: alfalfa-197295_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-197295_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-197295_1.tgz
+            - hostname: alfalfa-459711_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-459711_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-459711_1.tgz
+            - hostname: alfalfa-288490_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-288490_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-288490_1.tgz
+            - hostname: alfalfa-170879_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-170879_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-170879_1.tgz
+            - hostname: alfalfa-281301_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-281301_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-281301_1.tgz
+            - hostname: alfalfa-11933_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-11933_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-11933_1.tgz
+            - hostname: alfalfa-229321_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-229321_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-229321_1.tgz
+            - hostname: alfalfa-437325_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-437325_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-437325_1.tgz
+            - hostname: alfalfa-170879_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-170879_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-170879_2.tgz
+            - hostname: alfalfa-10127_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-10127_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-10127_1.tgz
+            - hostname: alfalfa-197295_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-197295_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-197295_2.tgz
+            - hostname: alfalfa-494283_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-494283_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-494283_1.tgz
+            - hostname: alfalfa-459711_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-459711_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-459711_2.tgz
+            - hostname: alfalfa-229321_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-229321_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-229321_2.tgz
+            - hostname: alfalfa-281301_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-281301_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-281301_2.tgz
+            - hostname: alfalfa-405914_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-405914_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-405914_1.tgz
+            - hostname: alfalfa-46648_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-46648_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-46648_1.tgz
+            - hostname: alfalfa-357101_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-357101_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-357101_2.tgz
+            - hostname: alfalfa-506556_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-506556_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-506556_1.tgz
+            - hostname: alfalfa-288490_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-288490_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-288490_2.tgz
+            - hostname: alfalfa-494283_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-494283_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-494283_2.tgz
+            - hostname: alfalfa-357101_3
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-357101_3.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-357101_3.tgz
+            - hostname: alfalfa-170879_3
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-170879_3.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-170879_3.tgz
+            - hostname: alfalfa-281301_3
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-281301_3.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-281301_3.tgz
+            - hostname: alfalfa-219255_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-219255_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-219255_1.tgz
+            - hostname: alfalfa-115010_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-115010_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-115010_1.tgz
+            - hostname: alfalfa-180093_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-180093_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-180093_1.tgz
+            - hostname: alfalfa-71175_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-71175_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-71175_1.tgz
+            - hostname: alfalfa-23156_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-23156_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-23156_1.tgz
+            - hostname: alfalfa-404945_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-404945_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-404945_1.tgz
+            - hostname: alfalfa-406755_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-406755_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-406755_1.tgz
+            - hostname: alfalfa-218212_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-218212_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-218212_1.tgz
+            - hostname: alfalfa-404945_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-404945_2.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-404945_2.tgz
+            - hostname: alfalfa-63786_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-63786_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-63786_1.tgz
+            - hostname: alfalfa-539175_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-539175_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-539175_1.tgz
+            - hostname: alfalfa-12618_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-12618_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-12618_1.tgz
+            - hostname: alfalfa-52401_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-52401_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-52401_1.tgz
+            - hostname: alfalfa-533874_1
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-533874_1.tgz /var/log/commercial.log*
+                - type: recv
+                  args: /alfalfa-533874_1.tgz
+            - hostname: alfalfa-506556_2
+              cleanup:
+                - type: exec
+                  args: /usr/bin/tar -czvf /alfalfa-506556_2.tgz /var/log/power.log*
+                - type: recv
+                  args: /alfalfa-506556_2.tgz
+            - hostname: soco
+              cleanup:
+                - type: exec
+                  args: /usr/bin tar -czvf /soco.tgz /var/log/power.log*
+                - type: recv
+                  args: /soco.tgz
+
+        - name: export-ot-sim-logs
+          type: cc
+          metadata:
+            vms: 
+              - hostname: bms-464636_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-357101_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-420644_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-129064_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-197295_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-459711_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-288490_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-170879_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-281301_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-11933_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-229321_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-437325_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-170879_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-10127_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-197295_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-494283_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-459711_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-229321_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-281301_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-405914_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-46648_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-357101_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-506556_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-288490_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-494283_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-357101_3
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-170879_3
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-281301_3
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-219255_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-115010_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-180093_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-71175_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-23156_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-404945_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-406755_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-218212_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-404945_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-63786_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-539175_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-12618_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-52401_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-533874_1
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+              - hostname: bms-506556_2
+                cleanup:
+                  - type: recv
+                    args: /var/log/ot-sim-helics.log
+
+        - name: export-zeek-logs
+          type: cc
+          metadata:
+            vms:
+              - hostname: aol
+                cleanup: 
+                  - type: exec 
+                    args: /usr/local/zeek/bin/zeekctl stop; /usr/bin/tar -cvzf /zeek.tgz /usr/local/zeek/logs
+                    wait: true
+                  - type: recv
+                    args: /zeek.tgz
+
+        - name: export-pcap
+          type: cc
+          metadata:
+            vms: 
+              - hostname: aol
+                cleanup: 
+                  - type: recv
+                    args: /mirrordata.pcap
+
+        - name: 5s-delay
+          type: pause
+          metadata:
+            duration: 5s
+        - name: 30s-delay
+          type: pause
+          metadata:
+            duration: 30s
+        - name: 5m-delay
+          type: pause
+          metadata:
+            duration: 300s
+        - name: 2m-delay
+          type: pause
+          metadata:
+            duration: 120s
+        - name: 1m-delay 
+          type: pause
+          metadata:
+            duration: 60s
+
+
+      runs: 
+        - name: test-postprocess
+          configure:
+            - kafka-csvs
+          cleanup:
+            - postprocess-alfalfa-output
+            - postprocess-power-data
+            - receive-alfalfa-results
+            - receive-grid-results
+
+        - name: primary-run
+          configure:
+            - kafka-csvs
+          cleanup:
+          - check-exp-stopped
+          - 5m-delay 
+          - postprocess-alfalfa-output
+          - postprocess-power-data
+          - 30s-delay
+          - receive-aggregator-schedule
+          - receive-alfalfa-results
+          - receive-grid-results
+          - clear_alfalfa
+          - clear_kafka_topics
+          # - export-federate-logs
+          # - export-ot-sim-logs
+        
+        - name: primary-run-dns
+          configure:
+            - kafka-csvs
+          cleanup:
+          - attack_dns
+          - check-exp-stopped
+          - 5m-delay 
+          - postprocess-alfalfa-output
+          - postprocess-power-data
+          - 30s-delay
+          - receive-aggregator-schedule
+          - receive-alfalfa-results
+          - receive-grid-results
+          - clear_alfalfa
+          - clear_kafka_topics
+          - export-zeek-logs
+          - export-pcap
+          # - export-federate-logs
+          # - export-ot-sim-logs
+        
+        - name: primary-run-api
+          configure:
+            - kafka-csvs
+          cleanup:
+          - attack_api
+          - check-exp-stopped
+          - 5m-delay 
+          - postprocess-alfalfa-output
+          - postprocess-power-data
+          - 30s-delay
+          - receive-aggregator-schedule
+          - receive-alfalfa-results
+          - receive-grid-results
+          - clear_alfalfa
+          - clear_kafka_topics
+          - export-zeek-logs
+          - export-pcap
+          # - export-federate-logs
+          # - export-ot-sim-logs
+
+
+
+        - name: receive-results
+          cleanup:
+          - receive-alfalfa-results
+          - receive-grid-results
+          - export-federate-logs
+          - export-ot-sim-logs
+
+        - name: collect-aggregator
+          cleanup:
+          - receive-aggregator-schedule
+          - receive-aggregator-logs
+          - receive-aggregator-service-logs
+          - export-federate-logs
+          - export-ot-sim-logs

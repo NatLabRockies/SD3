@@ -1,0 +1,9 @@
+#!/bin/vbash
+source /opt/vyatta/etc/functions/script-template
+configure
+set service dns forwarding listen-address 172.0.10.5
+set service dns forwarding allow-from 172.0.0.0/24
+set service dns forwarding name-server 172.16.0.1
+commit
+save
+exit

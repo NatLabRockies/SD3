@@ -1,0 +1,12 @@
+[Unit]
+Description=Configure gretap mirror0
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/mirror.sh
+
+[Install]
+WantedBy=multi-user.target

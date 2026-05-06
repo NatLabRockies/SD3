@@ -1,0 +1,269 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        206466.0185,
+                        298308.4299
+                    ],
+                    [
+                        206421.381,
+                        298194.8218
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_gpc-00550-gsu",
+                "from_element": "208_4369",
+                "to_element": "gpc_00550_gsu",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        219945.804,
+                        292284.56
+                    ],
+                    [
+                        219814.0214,
+                        292239.6514
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_8695-c0362-cyp",
+                "from_element": "195_280748",
+                "to_element": "8695_c0362_cyp",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        218682.1073,
+                        292371.6998
+                    ],
+                    [
+                        218727.9059,
+                        292344.1916
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_8208-c0362-cyp",
+                "from_element": "208_4420",
+                "to_element": "8208_c0362_cyp",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        218682.1073,
+                        292371.6998
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_8208-c0362-cyp_1",
+                "from_element": "208_4420",
+                "to_element": "8208_c0362_cyp_1",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        220263.9847,
+                        291916.0772
+                    ],
+                    [
+                        220242.9844,
+                        291941.0312
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_860267-c0362-cyp",
+                "from_element": "195_274867",
+                "to_element": "860267_c0362_cyp",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        204099.2439,
+                        301712.211
+                    ],
+                    [
+                        204043.6257,
+                        301657.0082
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_gpc-10080-gsu",
+                "from_element": "gpc_10080_tl",
+                "to_element": "gpc_10080_gsu",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        218466.6391,
+                        293290.3656
+                    ],
+                    [
+                        218455.7883,
+                        293247.9161
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_860708-c0362-cyp",
+                "from_element": "195_280578",
+                "to_element": "860708_c0362_cyp",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        208048.7758,
+                        299065.5719
+                    ],
+                    [
+                        208015.9973,
+                        299029.4448
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_gpc-10072-gsu",
+                "from_element": "gpc_10072_tl",
+                "to_element": "gpc_10072_gsu",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        204167.8031,
+                        301680.4366
+                    ],
+                    [
+                        204141.5879,
+                        301603.2606
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_gpc-10076-gsu",
+                "from_element": "gpc_10076_tl",
+                "to_element": "gpc_10076_gsu",
+                "nominal_voltage": 480.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222853.8522,
+                        291690.2475
+                    ],
+                    [
+                        222797.7007,
+                        291529.4675
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_reg_c0362-cyp-reg_a",
+                "from_element": "c0362_cyp_pcb",
+                "to_element": "s3908",
+                "nominal_voltage": 7200.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222853.8522,
+                        291690.2475
+                    ],
+                    [
+                        222797.7007,
+                        291529.4675
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_reg_c0362-cyp-reg_b",
+                "from_element": "c0362_cyp_pcb",
+                "to_element": "s3908",
+                "nominal_voltage": 7200.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222853.8522,
+                        291690.2475
+                    ],
+                    [
+                        222797.7007,
+                        291529.4675
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "trans_reg_c0362-cyp-reg_c",
+                "from_element": "c0362_cyp_pcb",
+                "to_element": "s3908",
+                "nominal_voltage": 7200.0
+            }
+        }
+    ]
+}

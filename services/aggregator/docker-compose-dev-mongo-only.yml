@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  mongo:
+    container_name: dercf_mongo
+    image: mongo:latest
+    command: ["--bind_ip_all"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-test:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "example"
+      MONGO_INITDB_DATABASE: "aggregator"
+volumes:
+  mongodb-test: 

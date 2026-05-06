@@ -1,0 +1,649 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        209425.604,
+                        297993.088
+                    ],
+                    [
+                        209428.128,
+                        298000.0
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_558417_8",
+                "from_element": "941_7516790",
+                "to_element": "200_1280738",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        208147.2315,
+                        299170.1498
+                    ],
+                    [
+                        208133.7805,
+                        299160.3215
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_4589971_5",
+                "from_element": "204_1400161",
+                "to_element": "207_4392274",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        204312.152,
+                        301939.962
+                    ],
+                    [
+                        204286.1428,
+                        301880.085
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "gpc_10076_pri_mtr",
+                "from_element": "941_239146",
+                "to_element": "207_4394673",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        204255.9348,
+                        301912.8088
+                    ],
+                    [
+                        204236.6425,
+                        301876.6
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "gpc_10080_pri_mtr",
+                "from_element": "941_7495329",
+                "to_element": "207_4333186",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222554.228,
+                        289300.732
+                    ],
+                    [
+                        222553.788,
+                        289289.406
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_2664032_1",
+                "from_element": "196_8760",
+                "to_element": "200_552329",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222378.88,
+                        289963.29
+                    ],
+                    [
+                        222364.39,
+                        289975.806
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "229_524805_1",
+                "from_element": "941_308580",
+                "to_element": "200_550413",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222626.762,
+                        291484.478
+                    ],
+                    [
+                        222627.116,
+                        291464.866
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_452771_6",
+                "from_element": "941_308784",
+                "to_element": "200_1050722",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222554.82,
+                        289315.958
+                    ],
+                    [
+                        222542.104,
+                        289301.644
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "229_526409_1",
+                "from_element": "941_308501",
+                "to_element": "200_552331",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222378.88,
+                        289963.29
+                    ],
+                    [
+                        222374.976,
+                        289963.386
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_2662741_2",
+                "from_element": "941_308580",
+                "to_element": "200_550412",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        217934.6578,
+                        293916.3003
+                    ],
+                    [
+                        217924.2965,
+                        293920.8943
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_4589977_1",
+                "from_element": "196_265713",
+                "to_element": "200_1280739",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        198632.06,
+                        303610.41
+                    ],
+                    [
+                        198614.196,
+                        303619.782
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_4290735_7",
+                "from_element": "941_7501791",
+                "to_element": "200_55281",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222363.646,
+                        289963.67
+                    ],
+                    [
+                        222352.316,
+                        289963.954
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_2662739_1",
+                "from_element": "196_8758",
+                "to_element": "200_550411",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        208211.9353,
+                        299217.4265
+                    ],
+                    [
+                        208185.2993,
+                        299197.9645
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_4589970_1",
+                "from_element": "195_1865473",
+                "to_element": "200_1280737",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        217948.5878,
+                        293910.1238
+                    ],
+                    [
+                        217945.019,
+                        293911.7063
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_4290732_20",
+                "from_element": "941_7516796",
+                "to_element": "200_1280740",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222602.94,
+                        290625.176
+                    ],
+                    [
+                        222600.224,
+                        290539.764
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_452800_1",
+                "from_element": "195_280597",
+                "to_element": "200_55134",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        221902.64,
+                        287126.7
+                    ],
+                    [
+                        221897.962,
+                        287096.176
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_448320_1",
+                "from_element": "195_340820",
+                "to_element": "193_29872",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222895.488,
+                        289950.376
+                    ],
+                    [
+                        222913.49,
+                        289949.926
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_4290723_6",
+                "from_element": "941_8221511",
+                "to_element": "200_55126",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222592.264,
+                        291496.46
+                    ],
+                    [
+                        222494.398,
+                        291504.802
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_452772_1",
+                "from_element": "195_280752",
+                "to_element": "200_55132",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        203345.926,
+                        301004.062
+                    ],
+                    [
+                        203349.492,
+                        301008.658
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_448259_7",
+                "from_element": "941_5335031",
+                "to_element": "200_951572",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        217948.5878,
+                        293910.1238
+                    ],
+                    [
+                        217939.9848,
+                        293927.229
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "229_1276467_2",
+                "from_element": "941_7516796",
+                "to_element": "200_1280741",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222426.84,
+                        291561.568
+                    ],
+                    [
+                        222424.372,
+                        291605.652
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_623392_1",
+                "from_element": "195_280590",
+                "to_element": "207_899936",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222554.82,
+                        289315.958
+                    ],
+                    [
+                        222554.668,
+                        289312.058
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_2664038_2",
+                "from_element": "941_308501",
+                "to_element": "200_552330",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222566.446,
+                        289602.638
+                    ],
+                    [
+                        222565.804,
+                        289587.704
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "227_452759_5",
+                "from_element": "941_8221941",
+                "to_element": "200_55127",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        220706.228,
+                        283532.308
+                    ],
+                    [
+                        220707.552,
+                        283509.986
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "228_350979_1",
+                "from_element": "195_275083",
+                "to_element": "200_55386",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        221119.752,
+                        284357.178
+                    ],
+                    [
+                        221073.564,
+                        284359.356
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "228_2473080_3",
+                "from_element": "941_5798945",
+                "to_element": "200_1067709",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        218734.258,
+                        293127.816
+                    ],
+                    [
+                        218526.282,
+                        292568.026
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "228_350975_10",
+                "from_element": "941_293061",
+                "to_element": "200_1157314",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        221232.974,
+                        284091.336
+                    ],
+                    [
+                        221228.494,
+                        284000.0
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "228_350996_3",
+                "from_element": "941_308178",
+                "to_element": "200_1067710",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222853.4722,
+                        291863.5079
+                    ],
+                    [
+                        222853.8522,
+                        291690.2475
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "c0362_cyp_pcb_line_breaker",
+                "from_element": "donalsonville_c0362_cyp",
+                "to_element": "c0362_cyp_pcb",
+                "nominal_voltage": 12470.0,
+                "Switch": "Yes"
+            }
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+  "endpoints": [
+    {
+      "name": "updates"
+    }
+  ],
+  "publications": {
+    "loads": {
+      "activePowerStatusBattery": {
+        "data_type": "double",
+        "unit": "W"
+      },
+      "active_power": {
+        "data_type": "double",
+        "unit": "W"
+      },
+      "batteryCurrent": {
+        "data_type": "double",
+        "unit": "A"
+      },
+      "batteryStorageChargePower": {
+        "data_type": "double",
+        "unit": "W"
+      },
+      "batteryVoltage": {
+        "data_type": "double",
+        "unit": "VAR"
+      },
+      "reactivePowerStatusBattery": {
+        "data_type": "double",
+        "unit": "VAR"
+      },
+      "reactive_power": {
+        "data_type": "double",
+        "unit": "VAR"
+      },
+      "setChargeDischargeRate": {
+        "data_type": "double",
+        "unit": "Percentage"
+      },
+      "stateOfChargeStatus": {
+        "data_type": "double",
+        "unit": "Wh"
+      }
+    }
+  },
+  "subscriptions": [
+    {
+      "federate_name": "sd3",
+      "loads": [
+        {
+          "names": [
+            "63786_1"
+          ],
+          "property": "voltage",
+          "property_data_type": "string",
+          "target": {
+            "63786_1": {
+              "object": "63786_1",
+              "property": "voltage"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

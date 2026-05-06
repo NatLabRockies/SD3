@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<measure>
+  <schema_version>3.1</schema_version>
+  <name>blackout</name>
+  <uid>00baa6a9-b631-44e4-a433-04477f0e6ee6</uid>
+  <version_id>603a33bf-3cad-40fe-b83d-7ef53b833a18</version_id>
+  <version_modified>2024-08-21T20:18:33Z</version_modified>
+  <xml_checksum>3B4EF12F</xml_checksum>
+  <class_name>Blackout</class_name>
+  <display_name>Blackout</display_name>
+  <description>Models loss of power to a building</description>
+  <modeler_description>Add EMS to set all schedules to zero</modeler_description>
+  <arguments />
+  <outputs />
+  <provenances />
+  <tags>
+    <tag>None</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>EnergyPlusMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.3.0</identifier>
+        <min_compatible>2.3.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>49FEA5AB</checksum>
+    </file>
+  </files>
+</measure>

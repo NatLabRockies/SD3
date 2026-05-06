@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<measure>
+  <schema_version>3.1</schema_version>
+  <name>alfalfa_variables</name>
+  <uid>3a9086cc-53c3-4d45-9acf-7d0aec301b99</uid>
+  <version_id>5822b083-94fd-4cf6-a147-38d66e71f6dc</version_id>
+  <version_modified>2024-09-05T22:18:52Z</version_modified>
+  <xml_checksum>356BE47F</xml_checksum>
+  <class_name>AlfalfaVariables</class_name>
+  <display_name>Alfalfa Variables</display_name>
+  <description>Add custom variables for Alfalfa</description>
+  <modeler_description>Add EMS global variables required by Alfalfa</modeler_description>
+  <arguments>
+    <argument>
+      <name>add_batt</name>
+      <display_name>Add Battery?</display_name>
+      <description>Add battery measure is a part of the workflow</description>
+      <type>Boolean</type>
+      <units></units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>false</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+  </arguments>
+  <outputs />
+  <provenances />
+  <tags>
+    <tag>HVAC.HVAC Controls</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Apply Measure Now</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Parametric Analysis Tool</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>3.1.0</identifier>
+        <min_compatible>3.1.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>73F3AC1E</checksum>
+    </file>
+  </files>
+</measure>

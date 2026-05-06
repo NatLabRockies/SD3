@@ -1,0 +1,74 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222853.8522,
+                        291690.2475
+                    ],
+                    [
+                        222797.7007,
+                        291529.4675
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "reg_c0362-cyp-reg_a",
+                "from_element": "c0362_cyp_pcb",
+                "to_element": "s3908",
+                "nominal_voltage": 7200.0,
+                "transformer": "trans_reg_c0362-cyp-reg_a"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222853.8522,
+                        291690.2475
+                    ],
+                    [
+                        222797.7007,
+                        291529.4675
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "reg_c0362-cyp-reg_b",
+                "from_element": "c0362_cyp_pcb",
+                "to_element": "s3908",
+                "nominal_voltage": 7200.0,
+                "transformer": "trans_reg_c0362-cyp-reg_b"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        222853.8522,
+                        291690.2475
+                    ],
+                    [
+                        222797.7007,
+                        291529.4675
+                    ]
+                ]
+            },
+            "properties": {
+                "name": "reg_c0362-cyp-reg_c",
+                "from_element": "c0362_cyp_pcb",
+                "to_element": "s3908",
+                "nominal_voltage": 7200.0,
+                "transformer": "trans_reg_c0362-cyp-reg_c"
+            }
+        }
+    ]
+}

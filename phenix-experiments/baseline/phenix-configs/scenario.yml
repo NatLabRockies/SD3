@@ -1,0 +1,1207 @@
+apiVersion: phenix.sandia.gov/v2
+kind: Scenario
+metadata:
+  name: ${BRANCH_NAME}
+  annotations:
+    topology: ${BRANCH_NAME}
+spec:
+  apps:
+    - name: ovs-patch
+    - name: scorch
+      fromScenario: ${BRANCH_NAME}_scorch
+    - name: ot-sim
+      metadata:
+        helics:
+          federate: sd3
+          endpoint: updates
+          end-time: 9000
+          log-level: debug
+          broker:
+            hostname: broker|eth0
+        infrastructures:
+          power-distribution:
+            storage:
+              batteryVoltage: analog-read
+              batteryCurrent: analog-read
+              activePowerStatusBattery: analog-read
+              reactivePowerStatusBattery: analog-read
+              stateOfChargeStatus: analog-read
+              setChargeDischargeRate: analog-read-write
+      hosts:
+        - hostname: ems-197295_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-197295_1
+        - hostname: ems-464636_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-464636_1
+        - hostname: ems-357101_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-357101_1
+        - hostname: ems-420644_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-420644_1
+        - hostname: ems-129064_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-129064_1
+        - hostname: ems-459711_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-459711_1
+        - hostname: ems-288490_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-288490_1
+        - hostname: ems-170879_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-170879_1
+        - hostname: ems-281301_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-281301_1
+        - hostname: ems-11933_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-11933_1
+        - hostname: ems-229321_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-229321_1
+        - hostname: ems-437325_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-437325_1
+        - hostname: ems-170879_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-170879_2
+        - hostname: ems-10127_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-10127_1
+        - hostname: ems-197295_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-197295_2
+        - hostname: ems-494283_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-494283_1
+        - hostname: ems-459711_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-459711_2
+        - hostname: ems-229321_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-229321_2
+        - hostname: ems-281301_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-281301_2
+        - hostname: ems-405914_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-405914_1
+        - hostname: ems-46648_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-46648_1
+        - hostname: ems-357101_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-357101_2
+        - hostname: ems-506556_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-506556_1
+        - hostname: ems-288490_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-288490_2
+        - hostname: ems-494283_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-494283_2
+        - hostname: ems-357101_3
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-357101_3
+        - hostname: ems-170879_3
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-170879_3
+        - hostname: ems-281301_3
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-281301_3
+        - hostname: ems-219255_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-219255_1
+        - hostname: ems-115010_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-115010_1
+        - hostname: ems-180093_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-180093_1
+        - hostname: ems-71175_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-71175_1
+        - hostname: ems-23156_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-23156_1
+        - hostname: ems-404945_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-404945_1
+        - hostname: ems-406755_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-406755_1
+        - hostname: ems-218212_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-218212_1
+        - hostname: ems-404945_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-404945_2
+        - hostname: ems-63786_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-63786_1
+        - hostname: ems-539175_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-539175_1
+        - hostname: ems-12618_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-12618_1
+        - hostname: ems-52401_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-52401_1
+        - hostname: ems-533874_1
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-533874_1
+        - hostname: ems-506556_2
+          metadata:
+            type: fd-client
+            connected_rtus:
+              - bms-506556_2
+        - hostname: bms-464636_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-464636_1/464636_1
+                type: storage
+                endpoint: commercial-464636_1/updates
+        - hostname: bms-357101_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-357101_1/357101_1
+                type: storage
+                endpoint: commercial-357101_1/updates
+        - hostname: bms-420644_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-420644_1/420644_1
+                type: storage
+                endpoint: commercial-420644_1/updates
+        - hostname: bms-129064_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-129064_1/129064_1
+                type: storage
+                endpoint: commercial-129064_1/updates
+        - hostname: bms-197295_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-197295_1/197295_1
+                type: storage
+                endpoint: commercial-197295_1/updates
+        - hostname: bms-459711_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-459711_1/459711_1
+                type: storage
+                endpoint: commercial-459711_1/updates
+        - hostname: bms-288490_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-288490_1/288490_1
+                type: storage
+                endpoint: commercial-288490_1/updates
+        - hostname: bms-170879_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-170879_1/170879_1
+                type: storage
+                endpoint: commercial-170879_1/updates
+        - hostname: bms-281301_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-281301_1/281301_1
+                type: storage
+                endpoint: commercial-281301_1/updates
+        - hostname: bms-11933_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-11933_1/11933_1
+                type: storage
+                endpoint: commercial-11933_1/updates
+        - hostname: bms-229321_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-229321_1/229321_1
+                type: storage
+                endpoint: commercial-229321_1/updates
+        - hostname: bms-437325_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-437325_1/437325_1
+                type: storage
+                endpoint: commercial-437325_1/updates
+        - hostname: bms-170879_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-170879_2/170879_2
+                type: storage
+                endpoint: commercial-170879_2/updates
+        - hostname: bms-10127_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-10127_1/10127_1
+                type: storage
+                endpoint: commercial-10127_1/updates
+        - hostname: bms-197295_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-197295_2/197295_2
+                type: storage
+                endpoint: commercial-197295_2/updates
+        - hostname: bms-494283_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-494283_1/494283_1
+                type: storage
+                endpoint: commercial-494283_1/updates
+        - hostname: bms-459711_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-459711_2/459711_2
+                type: storage
+                endpoint: commercial-459711_2/updates
+        - hostname: bms-229321_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-229321_2/229321_2
+                type: storage
+                endpoint: commercial-229321_2/updates
+        - hostname: bms-281301_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-281301_2/281301_2
+                type: storage
+                endpoint: commercial-281301_2/updates
+        - hostname: bms-405914_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-405914_1/405914_1
+                type: storage
+                endpoint: commercial-405914_1/updates
+        - hostname: bms-46648_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-46648_1/46648_1
+                type: storage
+                endpoint: commercial-46648_1/updates
+        - hostname: bms-357101_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-357101_2/357101_2
+                type: storage
+                endpoint: commercial-357101_2/updates
+        - hostname: bms-506556_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-506556_1/506556_1
+                type: storage
+                endpoint: commercial-506556_1/updates
+        - hostname: bms-288490_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-288490_2/288490_2
+                type: storage
+                endpoint: commercial-288490_2/updates
+        - hostname: bms-494283_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-494283_2/494283_2
+                type: storage
+                endpoint: commercial-494283_2/updates
+        - hostname: bms-357101_3
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-357101_3/357101_3
+                type: storage
+                endpoint: commercial-357101_3/updates
+        - hostname: bms-170879_3
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-170879_3/170879_3
+                type: storage
+                endpoint: commercial-170879_3/updates
+        - hostname: bms-281301_3
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-281301_3/281301_3
+                type: storage
+                endpoint: commercial-281301_3/updates
+        - hostname: bms-219255_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-219255_1/219255_1
+                type: storage
+                endpoint: commercial-219255_1/updates
+        - hostname: bms-115010_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-115010_1/115010_1
+                type: storage
+                endpoint: commercial-115010_1/updates
+        - hostname: bms-180093_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-180093_1/180093_1
+                type: storage
+                endpoint: commercial-180093_1/updates
+        - hostname: bms-71175_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-71175_1/71175_1
+                type: storage
+                endpoint: commercial-71175_1/updates
+        - hostname: bms-23156_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-23156_1/23156_1
+                type: storage
+                endpoint: commercial-23156_1/updates
+        - hostname: bms-404945_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-404945_1/404945_1
+                type: storage
+                endpoint: commercial-404945_1/updates
+        - hostname: bms-406755_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-406755_1/406755_1
+                type: storage
+                endpoint: commercial-406755_1/updates
+        - hostname: bms-218212_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-218212_1/218212_1
+                type: storage
+                endpoint: commercial-218212_1/updates
+        - hostname: bms-404945_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-404945_2/404945_2
+                type: storage
+                endpoint: commercial-404945_2/updates
+        - hostname: bms-63786_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-63786_1/63786_1
+                type: storage
+                endpoint: commercial-63786_1/updates
+        - hostname: bms-539175_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-539175_1/539175_1
+                type: storage
+                endpoint: commercial-539175_1/updates
+        - hostname: bms-12618_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-12618_1/12618_1
+                type: storage
+                endpoint: commercial-12618_1/updates
+        - hostname: bms-52401_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-52401_1/52401_1
+                type: storage
+                endpoint: commercial-52401_1/updates
+        - hostname: bms-533874_1
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-533874_1/533874_1
+                type: storage
+                endpoint: commercial-533874_1/updates
+        - hostname: bms-506556_2
+          metadata:
+            type: fd-server
+            modbus:
+              - name: commercial-506556_2/506556_2
+                type: storage
+                endpoint: commercial-506556_2/updates
+    - name: tap
+      metadata:
+        taps:
+          - bridge: ${BRANCH_NAME}
+            vlan: MGMT
+            ip: 172.16.0.7/16
+            externalAccess:
+              enabled: true
+    - name: federate
+      metadata:
+        helics:
+          broker:
+            hostname: broker|eth0
+        kafka:
+          ip: ${HOST}
+        env_vars:
+          #experiment_duration_secs: 900
+          experiment_duration_secs: 9000
+          in_real_time: true
+          loglevel: DEBUG
+          publish_to_kafka: true
+          helics_loglevel: DEBUG
+          experiment_start_year: 2018
+          experiment_start_month: 6
+          experiment_start_date: 24
+          experiment_start_hour: 13
+          experiment_start_minute: 50
+      hosts:
+        - hostname: soco
+          metadata:
+            federate_type: power
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: sd3
+              freq_feeder_secs: 60
+              offset_feeder_run_secs: 0
+              offset_send_measurements_secs: 1
+              offset_recv_measurements_secs: 5
+              load_folder_separate: false
+              load_folder_path: /phenix/injects/${BRANCH_NAME}/sd3/model
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/sd3/configs
+              master_file_path: /phenix/injects/${BRANCH_NAME}/sd3/model/Master.dss
+        - hostname: alfalfa-464636_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-464636_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-464636_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "464636_1"
+        - hostname: alfalfa-357101_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-357101_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-357101_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "357101_1"
+        - hostname: alfalfa-420644_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-420644_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-420644_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "420644_1"
+        - hostname: alfalfa-129064_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-129064_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-129064_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "129064_1"
+        - hostname: alfalfa-197295_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-197295_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-197295_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "197295_1"
+        - hostname: alfalfa-459711_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-459711_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-459711_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "459711_1"
+        - hostname: alfalfa-288490_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-288490_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-288490_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "288490_1"
+        - hostname: alfalfa-170879_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-170879_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-170879_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "170879_1"
+        - hostname: alfalfa-281301_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-281301_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-281301_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "281301_1"
+        - hostname: alfalfa-11933_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-11933_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-11933_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "11933_1"
+        - hostname: alfalfa-229321_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-229321_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-229321_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "229321_1"
+        - hostname: alfalfa-437325_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-437325_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-437325_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "437325_1"
+        - hostname: alfalfa-170879_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-170879_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-170879_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "170879_2"
+        - hostname: alfalfa-10127_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-10127_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-10127_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "10127_1"
+        - hostname: alfalfa-197295_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-197295_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-197295_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "197295_2"
+        - hostname: alfalfa-494283_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-494283_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-494283_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "494283_1"
+        - hostname: alfalfa-459711_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-459711_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-459711_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "459711_2"
+        - hostname: alfalfa-229321_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-229321_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-229321_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "229321_2"
+        - hostname: alfalfa-281301_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-281301_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-281301_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "281301_2"
+        - hostname: alfalfa-405914_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-405914_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-405914_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "405914_1"
+        - hostname: alfalfa-46648_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-46648_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-46648_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "46648_1"
+        - hostname: alfalfa-357101_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-357101_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-357101_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "357101_2"
+        - hostname: alfalfa-506556_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-506556_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-506556_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "506556_1"
+        - hostname: alfalfa-288490_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-288490_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-288490_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "288490_2"
+        - hostname: alfalfa-494283_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-494283_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-494283_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "494283_2"
+        - hostname: alfalfa-357101_3
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-357101_3
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-357101_3/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "357101_3"
+        - hostname: alfalfa-170879_3
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-170879_3
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-170879_3/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "170879_3"
+        - hostname: alfalfa-281301_3
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-281301_3
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-281301_3/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "281301_3"
+        - hostname: alfalfa-219255_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-219255_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-219255_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "219255_1"
+        - hostname: alfalfa-115010_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-115010_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-115010_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "115010_1"
+        - hostname: alfalfa-180093_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-180093_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-180093_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "180093_1"
+        - hostname: alfalfa-71175_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-71175_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-71175_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "71175_1"
+        - hostname: alfalfa-23156_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-23156_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-23156_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "23156_1"
+        - hostname: alfalfa-404945_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-404945_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-404945_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "404945_1"
+        - hostname: alfalfa-406755_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-406755_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-406755_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "406755_1"
+        - hostname: alfalfa-218212_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-218212_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-218212_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "218212_1"
+        - hostname: alfalfa-404945_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-404945_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-404945_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "404945_2"
+        - hostname: alfalfa-63786_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-63786_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-63786_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "63786_1"
+        - hostname: alfalfa-539175_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-539175_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-539175_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "539175_1"
+        - hostname: alfalfa-12618_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-12618_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-12618_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "12618_1"
+        - hostname: alfalfa-52401_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-52401_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-52401_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "52401_1"
+        - hostname: alfalfa-533874_1
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-533874_1
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-533874_1/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "533874_1"
+        - hostname: alfalfa-506556_2
+          metadata:
+            federate_type: commercial
+            injection_src: /phenix/injects/${BRANCH_NAME}
+            env_vars:
+              federate_name: commercial-506556_2
+              freq_building_sim_secs: 60
+              OFFSET_RECV_MEASUREMENTS_SECS: 2
+              OFFSET_ADVANCE_SIMULATION_SECS: 3
+              OFFSET_GET_MEASUREMENTS_SECS: 4
+              OUTPUT_MEASUREMENTS_TIME_STEP_SECS: 6
+              config_folder_path: /phenix/injects/${BRANCH_NAME}/commercial-506556_2/configs
+              alfalfa_url: http://10.10.100.31
+              load_id: "506556_2"
+    - name: helics
+      metadata:
+        broker:
+          root: broker|eth0
+          log-level: connections
+    - name: mirror
+      metadata:
+        version: v1
+        mirrorVLAN: span
+      hosts:
+      - hostname: aol
+        metadata:
+          interface: eth1
+          #setupOVS: true
+          vlans:
+          - WAN
+          forcedMirrorRouted: true

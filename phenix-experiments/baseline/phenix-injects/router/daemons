@@ -1,0 +1,19 @@
+# /etc/frr/daemons
+zebra=yes
+ospfd=yes
+
+# Optional: disable everything else
+bgpd=no
+ripd=no
+ripngd=no
+isisd=no
+ldpd=no
+pimd=no
+nhrpd=no
+eigrpd=no
+babeld=no
+sharpd=no
+pbrd=no
+bfdd=no
+fabricd=no
+vrrpd=no

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<measure>
+  <schema_version>3.1</schema_version>
+  <name>reactive_pwr</name>
+  <uid>d0b7ee5f-9499-4d2f-a58a-851b8fd31ef8</uid>
+  <version_id>94a703b0-4e3a-4848-992f-2189799dcc6f</version_id>
+  <version_modified>2024-09-05T22:18:52Z</version_modified>
+  <xml_checksum>3B4EF12F</xml_checksum>
+  <class_name>ReactivePwr</class_name>
+  <display_name>Reactive power</display_name>
+  <description>Calculate reactive power</description>
+  <modeler_description>Add python plugin to calculate reactive power</modeler_description>
+  <arguments />
+  <outputs />
+  <provenances />
+  <tags>
+    <tag>None</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>EnergyPlusMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.3.0</identifier>
+        <min_compatible>2.3.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>E5136BE9</checksum>
+    </file>
+    <file>
+      <filename>in.py</filename>
+      <filetype>py</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>AD43BFEE</checksum>
+    </file>
+  </files>
+</measure>

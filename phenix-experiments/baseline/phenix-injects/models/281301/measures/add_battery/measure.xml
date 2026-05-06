@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<measure>
+  <schema_version>3.1</schema_version>
+  <name>add_battery</name>
+  <uid>981a40a6-712b-4681-b60b-a996b3840b65</uid>
+  <version_id>332cb734-1adc-4ea1-a575-a11a61fba132</version_id>
+  <version_modified>2024-09-05T22:18:48Z</version_modified>
+  <xml_checksum>3B4EF12F</xml_checksum>
+  <class_name>AddBattery</class_name>
+  <display_name>Add Battery</display_name>
+  <description>Add Li-ion battery</description>
+  <modeler_description>Add Li-ion NMC battery model from the System Advisor Model (SAM)</modeler_description>
+  <arguments>
+    <argument>
+      <name>size_kwh</name>
+      <display_name>Battery kWh</display_name>
+      <description>Battery kWh</description>
+      <type>Double</type>
+      <units>kWh</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>14</default_value>
+    </argument>
+    <argument>
+      <name>size_kw</name>
+      <display_name>Battery kW</display_name>
+      <description>Battery kW</description>
+      <type>Double</type>
+      <units>kW</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>5</default_value>
+    </argument>
+    <argument>
+      <name>batt_v</name>
+      <display_name>Battery Voltage</display_name>
+      <description>Battery Voltage</description>
+      <type>Double</type>
+      <units>V</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>50</default_value>
+    </argument>
+    <argument>
+      <name>soc_init_pct</name>
+      <display_name>Battery Initial SOC</display_name>
+      <description>Battery Initial SOC</description>
+      <type>Double</type>
+      <units>%</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>50</default_value>
+    </argument>
+    <argument>
+      <name>soc_max_pct</name>
+      <display_name>Battery Max SOC</display_name>
+      <description>Battery Max SOC</description>
+      <type>Double</type>
+      <units>%</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>100</default_value>
+    </argument>
+    <argument>
+      <name>soc_min_pct</name>
+      <display_name>Battery Min SOC</display_name>
+      <description>Battery Min SOC</description>
+      <type>Double</type>
+      <units>%</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>3.571</default_value>
+    </argument>
+    <argument>
+      <name>batt_mass</name>
+      <display_name>Battery Mass</display_name>
+      <description>Battery Mass</description>
+      <type>Double</type>
+      <units>kg</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>114</default_value>
+    </argument>
+    <argument>
+      <name>batt_surf_area</name>
+      <display_name>Battery Surface Area</display_name>
+      <description>Battery Surface Area</description>
+      <type>Double</type>
+      <units>m2</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>2.297</default_value>
+    </argument>
+  </arguments>
+  <outputs />
+  <provenances />
+  <tags>
+    <tag>None</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>EnergyPlusMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.3.0</identifier>
+        <min_compatible>2.3.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>1C045739</checksum>
+    </file>
+  </files>
+</measure>

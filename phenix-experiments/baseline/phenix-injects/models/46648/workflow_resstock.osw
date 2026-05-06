@@ -1,0 +1,54 @@
+{
+  "seed_file": "in.osm",
+  "weather_file": "USA_GA_Albany-Dougherty.County.AP.722160_TMY3.epw",
+  "measure_paths": [
+    "./measures"
+  ],
+  "run_directory": "./run/",
+  "file_paths": [
+    "./weather",
+    "./models"
+  ],
+  "steps": [
+    {
+      "measure_dir_name": "resstock_paths"
+    },
+    {
+      "measure_dir_name": "alfalfa_vars",
+      "name": "Alfalfa Variables",
+      "description": "Add custom variables for Alfalfa",
+      "modeler_description": "Add EMS global variables required by Alfalfa",
+      "arguments": {
+        "add_batt": "true"
+      }
+    },
+    {
+      "measure_dir_name": "add_zone-cap-mult",
+      "name": "add_zone_cap_mult",
+      "description": "Add zone capacitance multiplier",
+      "modeler_description": "Add zone capacitance multiplier"
+    },
+    {
+      "measure_dir_name": "add_battery",
+      "name": "Add Battery",
+      "description": "Add Li-ion battery",
+      "modeler_description": "Add Li-ion NMC battery model from the System Advisor Model (SAM)",
+      "arguments": {
+        "size_kwh": "14",
+        "size_kw": "5",
+        "batt_v": "50",
+        "soc_init_pct": "100",
+        "soc_max_pct": "100",
+        "soc_min_pct": "3.571",
+        "batt_mass": "114",
+        "batt_surf_area": "2.297"
+      }
+    },
+    {
+      "measure_dir_name": "react_pwr",
+      "name": "Reactive power",
+      "description": "Calculate reactive power",
+      "modeler_description": "Add python plugin to calculate reactive power"
+    }
+  ]
+}
