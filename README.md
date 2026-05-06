@@ -61,7 +61,7 @@ In-depth technical architecture and component design.
 - **Data Collection System** - Kafka streaming, post-processing, analysis tools
 - Communication protocols and performance metrics
 
-### 🚀 [setup_and_running.md](docs/setup_and_running.md)
+### 🚀 [deployment.md](docs/deployment.md)
 Complete deployment and operational guide.
 - Prerequisites and pre-deployment checklist
 - Step-by-step experiment deployment via Phenix
@@ -84,16 +84,16 @@ Detailed technical specifications for each subsystem.
 ### For New Users
 1. Start with [co_simulation_overview.md](docs/co_simulation_overview.md) to understand the system
 2. Read [architecture.md](docs/architecture.md) for technical depth
-3. Use [setup_and_running.md](docs/setup_and_running.md) to deploy your first experiment
+3. Use [deployment.md](docs/deployment.md) to deploy your first experiment
 
 ### For Deployment
-1. Follow the deployment checklist in [setup_and_running.md](docs/setup_and_running.md)
+1. Follow the deployment checklist in [deployment.md](docs/deployment.md)
 2. Create a feature branch and push to trigger CI/CD
 3. Monitor the experiment via Phenix GUI
 4. Download and analyze results
 
 ### For Troubleshooting
-Refer to the troubleshooting sections in [setup_and_running.md](docs/setup_and_running.md) or dive into [components.md](docs/components.md) for specific subsystem details.
+Refer to the troubleshooting sections in [deployment.md](docs/deployment.md) or dive into [components.md](docs/components.md) for specific subsystem details.
 
 ## Key Technologies
 
