@@ -56,10 +56,10 @@ log-level: debug
 ├──────────────────────────────────────────┤
 │  ┌─────────────────────────────────────┐ │
 │  │   Building Energy Models (EnergyPlus) │ │
-│  │   - Multiple commercial buildings      │ │
+│  │   - Multiple buildings      │ │
 │  │   - Thermal dynamics                   │ │
 │  │   - HVAC systems                       │ │
-│  │   - Occupancy schedules                │ │
+│  │                               
 │  └─────────────────────────────────────┘ │
 │                                          │
 │  ┌─────────────────────────────────────┐ │
@@ -92,12 +92,13 @@ log-level: debug
 - Building comfort metrics
 
 #### Building Models
-- **Count**: 20+ commercial buildings
-- **Types**: Office, retail, mixed-use
+- **Count**: 32 unique building models
+- **Types**: Residental, mixed-use
 - **Features**:
   - EnergyPlus thermal simulation
   - HVAC systems with variable capacity
   - Occupancy-driven schedules
+  - BESS Battery Model
   - Solar thermal models
 
 #### Control Scenarios
@@ -115,10 +116,7 @@ log-level: debug
 
 #### Battery Specifications
 **Typical Configuration**:
-- **Capacity**: 100-500 kWh (building-scale)
-- **Power Rating**: 50-250 kW
-- **Chemistry**: Lithium-ion (modeled)
-- **Efficiency**: 85-95% round-trip
+- **Capacity**: 20 kWh 
 
 #### Communication Stack
 ```
@@ -494,20 +492,4 @@ Step 4: Broker grants time advance
 
 ---
 
-## Performance Metrics
 
-### Simulation Speed
-- **Real-Time Factor**: 1.0x (wall clock matched)
-- **Typical Duration**: 2.5 hours per simulation run
-- **Overhead**: ~5-10% CPU for synchronization
-
-### Data Volume
-- **Metrics Per Time Step**: ~1000 data points
-- **Simulation Duration**: 9000 seconds
-- **Total Records**: ~9 million (before aggregation)
-- **Compressed Size**: 100-500 MB per run
-
-### API Responsiveness
-- **Aggregator Latency**: <100 ms for battery queries
-- **EMS Command Propagation**: <1 second to RTU
-- **Sensor Update Rate**: 1-5 second intervals

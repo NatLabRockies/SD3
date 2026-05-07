@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-**SD3 Tools** is a comprehensive platform for **hardware-in-the-loop co-simulation** of advanced distribution systems with distributed energy resources. This project enables real-time synchronous simulation of:
+**SD3 Tools** is a comprehensive platform for co-simulation of advanced distribution systems with distributed energy resources. This project enables real-time synchronous simulation of:
 
 - **OpenDSS Power Distribution Simulator** - Models the electrical distribution grid and power flow
 - **Alfalfa Building Energy Models** - Simulates building thermal dynamics and HVAC systems  
-- **Distributed Battery Energy Storage Systems (BESS)** - Includes multiple battery systems across service areas
+- **Distributed Battery Energy Storage Systems (BESS)** - Includes multiple battery systems across service areas that are part of the Alfalfa Building Energy model.
 - **Aggregator Service** - Central battery management and control system
 
 The simulators operate in real-time synchronization using **HELICS** (Hierarchical Engine for Large-scale Integrated Co-simulation), enabling realistic analysis of demand response, grid-interactive batteries, and smart building-grid integration.
@@ -17,7 +17,7 @@ The simulators operate in real-time synchronization using **HELICS** (Hierarchic
 - **Distributed Energy Management**: Aggregator-coordinated battery dispatch and charging optimization
 - **Demand Response Integration**: Building controls responsive to grid signals and electricity prices
 - **Data-Rich Analysis**: Comprehensive collection and post-processing of grid, building, and battery metrics
-- **Production-Grade Deployment**: Runs on NREL's Phenix experiment platform with automated CI/CD
+- **Production-Grade Deployment**: Runs on Sandia's Phenix experiment platform with automated CI/CD
 
 ## Project Structure
 
@@ -45,7 +45,7 @@ The `phenix-experiments/baseline/` directory contains detailed documentation for
 
 ### 📋 [co_simulation_overview.md](docs/co_simulation_overview.md)
 **Start here** for a high-level understanding of the system.
-- Executive summary of the co-simulation architecture
+- Ssummary of the co-simulation architecture
 - System data flow diagrams
 - Description of all major components
 - Experiment execution phases

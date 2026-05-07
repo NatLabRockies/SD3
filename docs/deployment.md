@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ### Hardware Requirements
-- **Host Machine**: NREL Igor cluster (Phenix deployment environment)
+- **Host Machine**: Phenix Node in cluster (Phenix deployment environment)
 - **CPU**: 16+ cores recommended
 - **RAM**: 64+ GB recommended
 - **Storage**: 500+ GB for simulation outputs
