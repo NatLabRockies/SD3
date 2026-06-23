@@ -5,7 +5,7 @@
 This phenix experiment implements a **hardware-in-the-loop co-simulation** that couples:
 
 1. **OpenDSS Power Distribution Model** - Simulates the electrical distribution grid and power flow
-2. **Alfalfa Building Simulation Web Service** - Simulates building energy models and loads
+2. **PACER Building Simulation Web Service** - Simulates building energy models and loads
 3. **Battery Energy Storage Systems (BESS)** - Distributed batteries managed by an Aggregator
 4. **Aggregator Service** - Central control system managing battery charging/discharging via Energy Management Systems (EMS)
 
@@ -31,11 +31,11 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 │          │               │               │                  │
 │          ▼               ▼               ▼                  │
 │  ┌─────────────┐  ┌─────────────┐  ┌──────────────┐        │
-│  │   OpenDSS   │  │  Alfalfa    │  │ OT-Sim Agent │        │
+│  │   OpenDSS   │  │  PACER    │  │ OT-Sim Agent │        │
 │  │   (Power    │  │  (Building  │  │ (EMS Control)│        │
 │  │  Simulator) │  │ Simulation) │  │              │        │
 │  └─────────────┘  └─────────────┘  └──────────────┘        │
-│       SOCO           Alfalfa VM         ot-sim VMs         │
+│       SOCO           PACER VM         ot-sim VMs         │
 │                                                             │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Aggregator Service (Battery Management)             │  │
@@ -64,10 +64,10 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 - **HELICS Federate**: `sd3` (endpoint: `updates`)
 - **Time Control**: End time = 9000 seconds
 - **Inputs**: Battery charge/discharge commands from EMS
-- **Outputs**: Voltage, frequency, power flow to Alfalfa
+- **Outputs**: Voltage, frequency, power flow to PACER
 
-#### 2. **Alfalfa Building Simulation**
-- **Web Service**: Alfalfa co-simulation platform
+#### 2. **{PACER} Building Simulation**
+- **Web Service**: PACER co-simulation platform
 - **Role**: Simulates building energy models and thermal dynamics
 - **Models**: Multiple commercial buildings with energy management
 - **Inputs**: Electricity prices, grid signals from OpenDSS
@@ -91,7 +91,7 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 - **API Endpoints**: RESTful interface for battery management
 - **Functions**:
   - Track battery status per service area
-  - Receive charging signals from Alfalfa
+  - Receive charging signals from PACER
   - Send discharge commands to EMS systems
   - Manage service area scheduling
 
@@ -107,7 +107,7 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 - **Host VM**: `data-sender`
 - **Functions**:
   - Kafka to CSV conversion (power metrics)
-  - Alfalfa result processing
+  - PACER result processing
   - Power system analysis
   - Output aggregation and archival
 
@@ -116,10 +116,10 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 ## Experiment Flow
 
 ### Initialization Phase
-1. Phenix starts all VMs (soco, alfalfa, ot-sim, aggregator, data-sender)
+1. Phenix starts all VMs (soco, PACER, ot-sim, aggregator, data-sender)
 2. HELICS broker initializes on broker node
 3. OpenDSS simulator connects to HELICS as `sd3` federate
-4. Alfalfa service starts and connects
+4. PACER service starts and connects
 5. MongoDB initializes on aggregator VM
 6. OT-Sim clients connect to their respective BMS federates
 
@@ -127,7 +127,7 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 1. **Time Step 0-9000 seconds**
    - OpenDSS calculates power flow
    - Battery states sent to OpenDSS model
-   - Alfalfa simulates building loads and demand response
+   - PACER simulates building loads and demand response
    - Building loads transmitted to OpenDSS
    - Aggregator receives charging/discharging signals
    - EMS systems send commands to batteries
@@ -135,7 +135,7 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 
 ### Data Collection Phase
 1. Kafka metrics collected as CSV files
-2. Alfalfa results (building/battery data) exported
+2. PACER results (building/battery data) exported
 3. Power system analysis performed on collected data
 4. Results archived for download
 
@@ -168,7 +168,7 @@ baseline/
 │   │   ├── process-*.sh        # Post-processing scripts
 │   │   ├── geojson/            # Geographic data
 │   │   └── models/             # Analysis tools
-│   ├── models/                 # OpenDSS and Alfalfa model files
+│   ├── models/                 # OpenDSS and PACER model files
 │   ├── router/                 # Network routing configs
 │   └── commercial-*/           # Individual building configs
 └── README.md                   # Original phenix documentation
@@ -185,8 +185,8 @@ baseline/
 - **Log Level**: Debug (verbose logging for troubleshooting)
 
 ### Data Exchange
-- **OpenDSS → Alfalfa**: Grid voltage, frequency, electricity price signals
-- **Alfalfa → OpenDSS**: Building loads, solar generation
+- **OpenDSS → PACER**: Grid voltage, frequency, electricity price signals
+- **PACER → OpenDSS**: Building loads, solar generation
 - **OpenDSS ↔ OT-Sim**: Battery state of charge, power commands
 - **OT-Sim → Aggregator**: Battery status updates
 - **Aggregator → OT-Sim**: Charge/discharge commands

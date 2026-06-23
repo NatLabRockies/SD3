@@ -13,7 +13,7 @@
 - Track voltage profiles across all nodes
 - Simulate line losses and transformer behavior
 - Receive battery power injections from storage systems
-- Receive building loads from Alfalfa
+- Receive building loads from PACER
 - Broadcast electricity price signals
 
 #### HELICS Configuration
@@ -26,7 +26,7 @@ log-level: debug
 
 #### Data Interfaces
 **Inputs**:
-- Building loads from Alfalfa (aggregated per zone)
+- Building loads from PACER (aggregated per zone)
 - Battery charge/discharge power from EMS systems
 - User-defined demand response events
 
@@ -44,7 +44,7 @@ log-level: debug
 
 ---
 
-### 2. Alfalfa Building Simulation Web Service
+### 2. PACER Building Simulation Web Service
 
 **Type**: Building energy simulation platform  
 **Role**: Co-simulate building thermal dynamics and HVAC systems
@@ -52,7 +52,7 @@ log-level: debug
 #### Architecture
 ```
 ┌──────────────────────────────────────────┐
-│         Alfalfa Web Service               │
+│         PACER Web Service               │
 ├──────────────────────────────────────────┤
 │  ┌─────────────────────────────────────┐ │
 │  │   Building Energy Models (EnergyPlus) │ │
@@ -325,7 +325,7 @@ OT-Sim Process (fd-client)
 │    - power_flow                                    │
 │    - losses                                        │
 │                                                     │
-│  Alfalfa → Kafka Topics                           │
+│  PACER → Kafka Topics                           │
 │    - building_load                                 │
 │    - hvac_power                                    │
 │    - thermal_comfort                               │
@@ -344,8 +344,8 @@ OT-Sim Process (fd-client)
 │    Converts: Kafka topics → CSV files              │
 │    Output: kafka-csvs/ directory                   │
 │                                                     │
-│  process-alfalfa-results.sh                        │
-│    Converts: Alfalfa outputs → Packaged data       │
+│  process-pacer-results.sh                        │
+│    Converts: PACER outputs → Packaged data       │
 │    Output: building_battery_results.tgz            │
 │                                                     │
 │  process-power-data.sh                             │
@@ -376,7 +376,7 @@ OT-Sim Process (fd-client)
 - Transformer tap positions
 - Loss calculations
 
-**From Alfalfa**:
+**From PACER**:
 - Building electricity load (kW)
 - HVAC power consumption
 - Thermal zone temperatures
@@ -427,7 +427,7 @@ Step 1: OpenDSS requests time advance to T+1s
         ├─ Publishes battery power setpoints
         └─ Waits for HELICS broker
 
-Step 2: Alfalfa advances to T+1s
+Step 2: PACER advances to T+1s
         ├─ Receives loads from OpenDSS
         ├─ Calculates new building loads
         └─ Publishes to OpenDSS

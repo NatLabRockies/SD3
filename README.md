@@ -9,8 +9,8 @@ The simulation environment was deployed on Sandia's Phenix Minimega platform to 
 **SD3 Tools**  This repository includes the configuration files and README notes used to build this co-simulation environment for advanced distribution systems with DERs. This repository outlines the tools that enable real-time synchronous simulation of:
 
 - **OpenDSS Power Distribution Simulator** - Models the electrical distribution grid and power flow
-- **Alfalfa Building Energy Models** - Simulates building thermal dynamics and HVAC systems  
-- **Distributed Battery Energy Storage Systems (BESS)** - Includes multiple battery systems across service areas that are part of the Alfalfa Building Energy model.
+- **PACER Building Energy Models** - Simulates building thermal dynamics and HVAC systems  
+- **Distributed Battery Energy Storage Systems (BESS)** - Includes multiple battery systems across service areas that are part of the PACER Building Energy model.
 - **Aggregator Service** - Central battery management and control system
 
 The simulators operate in real-time synchronization using **HELICS** (Hierarchical Engine for Large-scale Integrated Co-simulation), enabling realistic analysis of demand response, grid-interactive batteries, and smart building-grid integration.
@@ -60,7 +60,7 @@ The `phenix-experiments/baseline/` directory contains detailed documentation for
 ### 🏗️ [architecture.md](docs/architecture.md)
 In-depth technical architecture and component design.
 - **OpenDSS Power Simulator** - Power flow calculations, model structure, HELICS interface
-- **Alfalfa Building Service** - EnergyPlus models, building controls, API endpoints
+- **PACER Building Service** - EnergyPlus models, building controls, API endpoints
 - **Battery Energy Storage Systems** - Monitoring, RTU communication, state tracking
 - **Aggregator Service** - API design, battery dispatch, MongoDB schema
 - **OT-Sim Agents** - HELICS federates, Modbus RTU communication, fault detection
@@ -80,7 +80,7 @@ Complete deployment and operational guide.
 ### 🔧 [components.md](docs/components.md)
 Detailed technical specifications for each subsystem.
 - **OpenDSS** - Installation, circuit models, load injection configuration
-- **Alfalfa** - Building thermal properties, HVAC systems, control strategies
+- **PACER** - Building thermal properties, HVAC systems, control strategies
 - **Aggregator** - Docker setup, BatteryEMS class, database schema, API examples
 - **OT-Sim** - Modbus registers, polling sequences, health monitoring
 - **Data Collection** - Kafka topics, CSV conversion, result processing
@@ -105,10 +105,10 @@ Refer to the troubleshooting sections in [deployment.md](docs/deployment.md) or 
 
 - **HELICS** - Time-synchronized co-simulation broker
 - **OpenDSS** - Power distribution simulator
-- **Alfalfa** - Building co-simulation platform
-- **EnergyPlus** - Building energy simulation engine
+- **PACER** - Formely called "Alfalfa" is a virtual building simluation platform providing industry standard building control interfaces for interacting with models in realtime.
+- **EnergyPlus** - Building energy simulation physics engine
 - **MongoDB** - Battery state and configuration database
-- **Flask** - RESTful API framework
+- **Aggregator** - RESTful API framework to represent an Aggregator
 - **Kafka** - Real-time data streaming
 - **Phenix** - Experiment orchestration platform
 
@@ -116,7 +116,6 @@ Refer to the troubleshooting sections in [deployment.md](docs/deployment.md) or 
 
 - **Documentation**: See the detailed guides linked above
 - **Issues**: Submit questions or bugs to the project issue tracker
-- **Slack**: Reach out on the #sd3-simulation channel
 - **Phenix Docs**: https://phenix.sceptre.dev/
 - **HELICS Docs**: https://helics.readthedocs.io/
 
