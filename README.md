@@ -2,7 +2,11 @@
 
 ## Project Overview
 
-**SD3 Tools** is a comprehensive platform for co-simulation of advanced distribution systems with distributed energy resources. This project enables real-time synchronous simulation of:
+The Secure-by-Design DER Deployment (SD3) research effort focused on advanced distribution systems with distributed energy resources (DERs), emphasizing how aggregated cyber events can affect grid conditions. This detrimental behavior can arise from cyberattacks in which a threat actor gains control of many connected devices. SD3 Tools examines these potential impacts at the grid edge using a high-fidelity emulation platform that co-simulates the physics of buildings and equipment with distribution-grid behavior in a cyber-physical environment. The platform identifies realistic configurations and demonstrates how cyberattacks on behind-the-meter battery systems may be mitigated through common distribution system operations.
+
+The simulation environment was deployed on Sandia's Phenix Minimega platform to support repeatable, high-fidelity cyber-physical experimentation. The purpose of this repository is to document the study workflow, system configuration, and toolchain used in that effort. This repository is not intended to be an out-of-the-box turnkey solution, because several components used in the study were developed in-house at the National Lab of the Rockies (NLR) and are not publicly available. Even with those limitations, the configuration files, parameter values, and integration notes provided here are represented as accurately as possible so others can understand the setup and reproduce the overall methodology.
+
+**SD3 Tools**  This repository includes the configuration files and README notes used to build this co-simulation environment for advanced distribution systems with DERs. This repository outlines the tools that enable real-time synchronous simulation of:
 
 - **OpenDSS Power Distribution Simulator** - Models the electrical distribution grid and power flow
 - **Alfalfa Building Energy Models** - Simulates building thermal dynamics and HVAC systems  
@@ -10,6 +14,8 @@
 - **Aggregator Service** - Central battery management and control system
 
 The simulators operate in real-time synchronization using **HELICS** (Hierarchical Engine for Large-scale Integrated Co-simulation), enabling realistic analysis of demand response, grid-interactive batteries, and smart building-grid integration.
+
+
 
 ## Key Capabilities
 
