@@ -6,7 +6,7 @@
 OpenDSS (Open Distribution System Simulator) is the core power flow simulator. It models the electrical distribution network and calculates steady-state power flow, voltage profiles, and losses in real-time.
 
 ### Host Configuration
-- **VM Name**: `soco`
+- **VM Name**: `opendss`
 - **OS**: Linux (CentOS/Ubuntu)
 - **CPU**: 4 cores
 - **RAM**: 8 GB
@@ -14,7 +14,7 @@ OpenDSS (Open Distribution System Simulator) is the core power flow simulator. I
 
 ### Installation & Startup
 ```bash
-# Inside soco VM
+# Inside opendss VM
 apt-get install opendss python3-opendss
 
 # Create symlink for HELICS

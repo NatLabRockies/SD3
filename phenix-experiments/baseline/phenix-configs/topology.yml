@@ -2653,7 +2653,7 @@ spec:
                   type: ethernet
         - type: VirtualMachine
           general:
-            hostname: soco
+            hostname: opendss
             vm_type: kvm
             snapshot: true
           hardware:
@@ -2661,7 +2661,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -2731,7 +2731,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -2808,7 +2808,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -2885,7 +2885,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -2962,7 +2962,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3039,7 +3039,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3116,7 +3116,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3193,7 +3193,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3270,7 +3270,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3347,7 +3347,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3424,7 +3424,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3501,7 +3501,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3578,7 +3578,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3655,7 +3655,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3732,7 +3732,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3809,7 +3809,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3886,7 +3886,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -3963,7 +3963,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4040,7 +4040,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4115,7 +4115,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4191,7 +4191,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4268,7 +4268,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4345,7 +4345,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4422,7 +4422,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4499,7 +4499,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4576,7 +4576,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4653,7 +4653,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4730,7 +4730,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4807,7 +4807,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4884,7 +4884,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -4961,7 +4961,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5038,7 +5038,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5115,7 +5115,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5192,7 +5192,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5269,7 +5269,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5346,7 +5346,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5423,7 +5423,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5500,7 +5500,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5577,7 +5577,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5654,7 +5654,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5731,7 +5731,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5808,7 +5808,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5885,7 +5885,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0
@@ -5962,7 +5962,7 @@ spec:
             vcpus: 4
             memory: 8192
             drives:
-                - image: federate_half_baked3.qc2
+                - image: federate.qc2
           network:
             interfaces:
                 - name: eth0

@@ -84,7 +84,7 @@ spec:
           type: cc
           metadata:
             vms:
-              - hostname: soco 
+              - hostname: opendss 
                 cleanup:
                   - type: exec
                     wait: true
@@ -400,12 +400,12 @@ spec:
                   args: /usr/bin/tar -czvf /alfalfa-506556_2.tgz /var/log/power.log*
                 - type: recv
                   args: /alfalfa-506556_2.tgz
-            - hostname: soco
+            - hostname: opendss
               cleanup:
                 - type: exec
-                  args: /usr/bin tar -czvf /soco.tgz /var/log/power.log*
+                  args: /usr/bin tar -czvf /opendss.tgz /var/log/power.log*
                 - type: recv
-                  args: /soco.tgz
+                  args: /opendss.tgz
 
         - name: export-ot-sim-logs
           type: cc

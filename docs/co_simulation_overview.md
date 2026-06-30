@@ -35,7 +35,7 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 │  │   (Power    │  │  (Building  │  │ (EMS Control)│        │
 │  │  Simulator) │  │ Simulation) │  │              │        │
 │  └─────────────┘  └─────────────┘  └──────────────┘        │
-│       SOCO           PACER VM         ot-sim VMs         │
+│       OpenDSS           PACER VM         ot-sim VMs         │
 │                                                             │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Aggregator Service (Battery Management)             │  │
@@ -59,7 +59,7 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 ### Key Components
 
 #### 1. **OpenDSS Power Distribution Model**
-- **Host VM**: `soco`
+- **Host VM**: `opendss`
 - **Role**: Simulates electrical grid, power flow, and distribution
 - **HELICS Federate**: `sd3` (endpoint: `updates`)
 - **Time Control**: End time = 9000 seconds
@@ -116,7 +116,7 @@ These simulators run in real-time synchronization using **HELICS (Hierarchical E
 ## Experiment Flow
 
 ### Initialization Phase
-1. Phenix starts all VMs (soco, PACER, ot-sim, aggregator, data-sender)
+1. Phenix starts all VMs (opendss, PACER, ot-sim, aggregator, data-sender)
 2. HELICS broker initializes on broker node
 3. OpenDSS simulator connects to HELICS as `sd3` federate
 4. PACER service starts and connects

@@ -4,7 +4,7 @@
 
 ### 1. OpenDSS Power Distribution Simulator
 
-**Location**: VM `soco`  
+**Location**: VM `opendss`  
 **Type**: OpenDSS power flow simulator  
 **Role**: Backbone of the co-simulation, models the electrical distribution system
 

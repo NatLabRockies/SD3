@@ -111,7 +111,7 @@ ssh user@phenix-host
 docker exec minimega mm vm info
 
 # Expected VMs:
-# - soco (OpenDSS)
+# - opendss (OpenDSS)
 # - alfalfa (Building simulation)
 # - aggregator (Battery service)
 # - data-sender (Data collection)
