@@ -1,0 +1,127 @@
+apiVersion: phenix.sandia.gov/v1
+kind: Image
+metadata:
+    name: mongo
+    created: "2024-08-15T16:06:15-06:00"
+    updated: "2024-08-19T08:38:55-06:00"
+spec:
+    compress: true
+    components:
+      - main
+      - restricted
+      - universe
+      - multiverse
+    format: qcow2
+    include_miniccc: false
+    include_protonuke: false
+    mirror: http://us.archive.ubuntu.com/ubuntu/
+    overlays:
+        - /phenix/vmdb/overlays/aggregator
+    packages:
+        - initramfs-tools
+        - net-tools
+        - isc-dhcp-client
+        - openssh-server
+        - init
+        - iputils-ping
+        - vim
+        - less
+        - netbase
+        - curl
+        - telnet
+        - lsof
+        - ifupdown
+        - dbus
+        - linux-image-generic
+        - linux-headers-generic
+    ramdisk: false
+    release: jammy
+    script_order:
+        - POSTBUILD_APT_CLEANUP
+        - POSTBUILD_NO_ROOT_PASSWD
+        - POSTBUILD_PHENIX_HOSTNAME
+        - POSTBUILD_PHENIX_BASE
+        - /phenix/vmdb/scripts/mongo.sh
+    scripts:
+        /phenix/vmdb/scripts/mongo.sh: |
+            apt update
+            apt upgrade
+            apt install -y git pkg-config python3-pip tmux python3-venv libsystemd-dev gnupg curl software-properties-common apt-transport-https ca-certificates
+
+            curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc |  gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+            echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+            apt update && apt install -y mongodb-org
+
+            systemctl enable mongod
+
+            sed -i 's/  bindIp: 127.0.0.1/  bindIp: 0.0.0.0/' /etc/mongod.conf
+
+            # Up the ulimits
+            cat >> /etc/security/limits.conf <<EOF
+            * soft nofile 1048576
+            * hard nofile 1048576
+            root soft nofile 1048576
+            root hard nofile 1048576
+            EOF
+
+        POSTBUILD_APT_CLEANUP: |4
+            apt clean || apt-get clean || echo "unable to clean apt cache"
+        POSTBUILD_NO_ROOT_PASSWD: |4
+            sed -i 's/nullok_secure/nullok/' /etc/pam.d/common-auth
+            sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+            sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+            sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+            sed -i 's/PermitEmptyPasswords no/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+            passwd -d root
+        POSTBUILD_PHENIX_BASE: |4
+            cat > /etc/systemd/system/miniccc.service <<EOF
+            [Unit]
+            Description=miniccc
+            [Service]
+            ExecStart=/opt/minimega/bin/miniccc -v=false -serial /dev/virtio-ports/cc -logfile /var/log/miniccc.log
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+            cat > /etc/systemd/system/phenix.service <<EOF
+            [Unit]
+            Description=phenix startup service
+            After=network.target systemd-hostnamed.service
+            [Service]
+            Environment=LD_LIBRARY_PATH=/usr/local/lib
+            ExecStart=/usr/local/bin/phenix-start.sh
+            RemainAfterExit=true
+            StandardOutput=journal
+            Type=oneshot
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+            mkdir -p /etc/systemd/system/multi-user.target.wants
+            ln -s /etc/systemd/system/miniccc.service /etc/systemd/system/multi-user.target.wants/miniccc.service
+            ln -s /etc/systemd/system/phenix.service /etc/systemd/system/multi-user.target.wants/phenix.service
+            mkdir -p /usr/local/bin
+            cat > /usr/local/bin/phenix-start.sh <<EOF
+            #!/bin/bash
+            for file in /etc/phenix/startup/*; do
+            	echo \$file
+            	bash \$file
+            done
+            EOF
+            chmod +x /usr/local/bin/phenix-start.sh
+            mkdir -p /etc/phenix/startup
+        POSTBUILD_PHENIX_HOSTNAME: |4
+            echo "phenix" > /etc/hostname
+            sed -i 's/127.0.1.1 .*/127.0.1.1 phenix/' /etc/hosts
+            cat > /etc/motd <<EOF
+
+            ██████╗ ██╗  ██╗███████╗███╗  ██╗██╗██╗  ██╗
+            ██╔══██╗██║  ██║██╔════╝████╗ ██║██║╚██╗██╔╝
+            ██████╔╝███████║█████╗  ██╔██╗██║██║ ╚███╔╝
+            ██╔═══╝ ██╔══██║██╔══╝  ██║╚████║██║ ██╔██╗
+            ██║     ██║  ██║███████╗██║ ╚███║██║██╔╝╚██╗
+            ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚══╝╚═╝╚═╝  ╚═╝
+
+            EOF
+            echo "\nBuilt with phenix image on $(date)\n\n" >> /etc/motd
+    size: 50G
+    skip_default_packages: false
+    variant: minbase
