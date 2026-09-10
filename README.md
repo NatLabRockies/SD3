@@ -121,7 +121,7 @@ Refer to the troubleshooting sections in [deployment.md](docs/deployment.md) or 
 
 ## License
 
-See LICENSE files in respective component directories.
+See [LICENSE.md](LICENSE.md)
 
 ---
 
